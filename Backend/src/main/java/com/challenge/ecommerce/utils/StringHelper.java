@@ -1,0 +1,27 @@
+package com.challenge.ecommerce.utils;
+
+import java.text.Normalizer;
+import java.util.Locale;
+import java.util.regex.Pattern;
+
+public class StringHelper {
+  private static final Pattern NONLATIN = Pattern.compile("[^\\w-]");
+  private static final Pattern WHITESPACE = Pattern.compile("[\\s]");
+
+  public static String toSlug(String input) {
+    String nowhitespace = WHITESPACE.matcher(input).replaceAll("-");
+    String normalized = Normalizer.normalize(nowhitespace, Normalizer.Form.NFD);
+    String slug = NONLATIN.matcher(normalized).replaceAll("");
+    return slug.toLowerCase(Locale.ENGLISH);
+  }
+
+  public static String changeFirstCharacterCase(String input) {
+    input = Character.toUpperCase(input.charAt(0)) + input.substring(1);
+    return input;
+  }
+
+  public static boolean isValidImageUrl(String url) {
+    String regex = ".*\\.(jpg|jpeg|png|gif|bmp|webp)$";
+    return url != null && url.toLowerCase().matches(regex);
+  }
+}
