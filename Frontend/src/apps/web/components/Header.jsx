@@ -3,14 +3,15 @@ import Logo from "../../../assets/icon/logo.svg";
 import { User, ShoppingBasket, Menu, Search } from "lucide-react";
 import { NavLink } from "react-router-dom";
 const navLinks = [
-  { label: "About", href: "/" },
-  { label: "Everything", href: "/everything" },
-  { label: "Groceries", href: "/" },
-  { label: "Juice", href: "/" },
-  { label: "Contant", href: "/" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Everything", href: "/products" },
+  { label: "Groceries", href: "/groceries" },
+  { label: "Juice", href: "/Juice" },
+  { label: "Contant", href: "/Contant" },
 ];
 const navLinksSM = [
-  { label: "About", href: "#" },
+  { label: "About", href: "/" },
   { label: "Cart", href: "#" },
   { label: "Checkout", href: "#" },
   { label: "Contact", href: "#" },
@@ -26,18 +27,20 @@ export const Header = () => {
 
   return (
     <header className="bg-white">
-      <div className=" grid lg:grid-cols-3 sm:grid-cols-2 sm:w-[300px] md:w-[700px] lg:w-[1200px]  m-auto lg:py-[15px]  gap-4 ">
-        <img
-          src={Logo}
-          alt="Logo"
-          className="lg:h-[70px] lg:w-[150px] sm:h-[47px] sm:w-[100px]"
-        />
-        <nav className="hidden lg:flex flex-row justify-center items-center m-2 ">
+      <div className=" grid lg:grid-cols-3 max-lg:grid-cols-2 max-w-6xl mx-auto my-2">
+        <NavLink to={"/"} className="flex items-center">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="lg:h-[70px] lg:w-[150px] max-lg:h-[47px] max-lg:w-[100px]"
+          />
+        </NavLink>
+        <nav className="max-lg:hidden flex flex-row justify-center items-center m-2 ">
           {navLinks.map((link) => (
             <NavLink
               key={link.label}
               to={link.href}
-              end={link.href === "a"}
+              end={link.href === "/"}
               className={({ isActive }) =>
                 isActive
                   ? "text-primary-600 px-5 font-opensans transition-colors"
@@ -49,7 +52,7 @@ export const Header = () => {
           ))}
         </nav>
         {!isMenuOpen && (
-          <button className="lg:hidden flex items-center  justify-end">
+          <button className="lg:hidden top-2 right-2 absolute flex flex-row justify-end">
             <span className=" bg-primary-600 p-2">
               <Menu
                 className="h-6 w-6 text-white "
@@ -58,7 +61,7 @@ export const Header = () => {
             </span>
           </button>
         )}
-        <div className="sm:hidden lg:flex flex-row items-center justify-end gap-4">
+        <div className="max-lg:hidden lg:flex flex-row items-center justify-end gap-4">
           <p className="text-primary font-opensans ">
             £ {totalPrice.toFixed(1)}
           </p>

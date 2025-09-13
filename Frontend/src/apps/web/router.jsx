@@ -1,13 +1,13 @@
 import WebLayout from "../web/layouts/WebLayout";
 import Home from "../web/pages/Home";
-import Everything from "../web/pages/Everything";
+import Everything from "./pages/Everything";
 const WebRouter = [
   {
     path: "/",
     element: <WebLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "everything", element: <Everything /> },
+      { path: "products", element: <Everything /> },
     ],
   },
 ];

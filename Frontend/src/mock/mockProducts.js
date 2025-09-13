@@ -1,4 +1,4 @@
-// mockProducts.ts
+// mockProducts.js
 export const products = [
   {
     id: 1,
@@ -43,5 +43,125 @@ export const products = [
     image:
       "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/edible-oil-300x300.jpg",
     isSale: true,
+  },
+];
+
+export const allProducts = [
+  // Coffee variations
+  {
+    id: 101,
+    category: "Groceries",
+    name: "Premium Coffee Beans",
+    price: 28.0,
+    oldPrice: null,
+    rating: 4,
+    image: products[0].image,
+    isSale: false,
+  },
+  {
+    id: 102,
+    category: "Groceries",
+    name: "Organic Espresso Blend",
+    price: 32.0,
+    oldPrice: 38.0,
+    rating: 5,
+    image: products[0].image,
+    isSale: true,
+  },
+  {
+    id: 103,
+    category: "Groceries",
+    name: "Dark Roast Coffee Pack",
+    price: 30.0,
+    oldPrice: null,
+    rating: 3,
+    image: products[0].image,
+    isSale: false,
+  },
+
+  // Sanitizer variations
+  {
+    id: 104,
+    category: "Groceries",
+    name: "Aloe Vera Hand Sanitizer",
+    price: 17.0,
+    oldPrice: null,
+    rating: 5,
+    image: products[1].image,
+    isSale: false,
+  },
+  {
+    id: 105,
+    category: "Groceries",
+    name: "Travel Size Hand Gel",
+    price: 12.0,
+    oldPrice: 15.0,
+    rating: 4,
+    image: products[1].image,
+    isSale: true,
+  },
+  {
+    id: 106,
+    category: "Groceries",
+    name: "Kids Safe Hand Sanitizer",
+    price: 14.0,
+    oldPrice: null,
+    rating: 4,
+    image: products[1].image,
+    isSale: false,
+  },
+
+  // Red Chillies variations
+  {
+    id: 107,
+    category: "Groceries",
+    name: "Spicy Red Pepper Pack",
+    price: 21.0,
+    oldPrice: null,
+    rating: 3,
+    image: products[2].image,
+    isSale: false,
+  },
+  {
+    id: 108,
+    category: "Groceries",
+    name: "Dried Red Chillies",
+    price: 22.0,
+    oldPrice: 28.0,
+    rating: 4,
+    image: products[2].image,
+    isSale: true,
+  },
+  {
+    id: 109,
+    category: "Groceries",
+    name: "Organic Red Chilli Powder",
+    price: 20.0,
+    oldPrice: null,
+    rating: 5,
+    image: products[2].image,
+    isSale: false,
+  },
+
+  // Edible Oil variations
+  {
+    id: 110,
+    category: "Groceries",
+    name: "Cold Pressed Cooking Oil",
+    price: 30.0,
+    oldPrice: 40.0,
+    rating: 4,
+    image: products[3].image,
+    isSale: true,
+  },
+  {
+    id: 111,
+    category: "Groceries",
+    name: "Natural Sunflower Oil",
+    price: 26.0,
+    oldPrice: null,
+    rating: 5,
+    image: products[3].image,
+    isSale: false,
   },
 ];
