@@ -10,6 +10,7 @@ import {
 import { image } from "../../../data/image";
 import { products } from "../../../mock/mockProducts";
 import { categories } from "../../../mock/mockCategories";
+import ListProduct from "../components/ListProduct";
 const brands = [
   {
     id: 1,
@@ -35,7 +36,7 @@ const brands = [
 function Home() {
   return (
     <>
-      <article className="sm:flex flex-col-reverse items-center  md:grid grid-cols-2 lg:mx-80 lg:py-28 bg-bg">
+      <article className="max-lg:flex flex-col-reverse items-center lg:grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] lg:py-28 max-w-6xl mx-auto bg-bg">
         <section>
           <img
             src={image.home}
@@ -43,13 +44,13 @@ function Home() {
             className="w-[608px] h-[521px] max-lg:w-[390px] max-lg:h-[320px] "
           />
         </section>
-        <section className="flex flex-col justify-center max-md:items-center max-lg:mb-8 gap-2 lg:ml-[80px] mt-5">
+        <section className="flex flex-col justify-center max-lg:items-center max-lg:mb-8 gap-2 lg:ml-[80px] mt-5">
           <img src={image.leaf} className="h-8 w-20 mb-4" />
           <h5 className="text-xl font-medium ">Best Quality Products</h5>
-          <h1 className="text-5xl font-bold mb-6 max-md:text-center">
+          <h1 className="text-5xl font-bold mb-6 max-lg:text-center">
             Join The Organic Movement!
           </h1>
-          <p className="text-lg mb-6 max-md:text-center">
+          <p className="text-lg mb-6 max-lg:text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
@@ -96,54 +97,24 @@ function Home() {
       </div>
       {/*Best Selling Products... */}
       <div className="bg-white">
-        <div className="flex flex-col items-center mb-[16px] gap-2 pt-[100px]">
+        <div className="flex flex-col items-center  mb-[16px] gap-2 pt-[100px]">
           <h1 className="text-3xl font-bold ">Best Selling Products</h1>
           <img src={image.leaf} className="w-[75px] h-[33px] " />
         </div>
         {/* <div className="flex flex-rows items-center justify-center gap-4 mt-10 pb-[100px] "> */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(285px,1fr))] sm:max-w-[300px] md:max-w-[600px] lg:max-w-[1200px] mx-auto gap-4 mt-10 pb-[100px] ">
-          {products.map((item) => (
-            <div key={item.id} className="text-center relative">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-[285px] h-[285px] object-cover relative z-10"
-              />
-              <p className="text-gray-500">{item.category}</p>
-              <h3 className="font-semibold">{item.name}</h3>
-              <div className="text-yellow-400">★★★★★</div>
-              <div className="mt-1">
-                {item.isSale && item.oldPrice ? (
-                  <div>
-                    <span className="line-through text-gray-400 mr-2">
-                      £{item.oldPrice.toFixed(2)}
-                    </span>
-                    <span className="text-red-500 font-bold">
-                      £{item.price.toFixed(2)}
-                    </span>
-                  </div>
-                ) : (
-                  <span className="font-bold">£{item.price.toFixed(2)}</span>
-                )}
-              </div>
-              {item.isSale && (
-                <span className="absolute z-20 top-0 right-0 bg-primary text-white text-xs  px-[10px] translate-x-[30%] -translate-y-[30%] py-4 rounded-full">
-                  Sale!
-                </span>
-              )}
-            </div>
-          ))}
+        <div className="pb-[100px] max-w-[1200px] mx-auto ">
+          <ListProduct products={products} />
         </div>
       </div>
-      <div className="bg-bg">
+      <div className="bg-bg pb-[100px]">
         <div className="flex flex-row justify-center -translate-y-[50%]">
           <img src={image.basil} className="h-[70px] w-[162px]" />
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(365px,1fr))] sm:max-w-[600px]: md:max-w-[800px] lg:max-w-[1200px] mx-auto gap-4 pb-[100px]">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] max-w-6xl mx-auto gap-5">
           {categories.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-lg shadow p-6 relative w-[365px] h-[370px] pt-10 pl-10 mx-auto"
+              className="bg-white rounded-lg shadow p-6 relative pt-10 pl-10 max-w-[300px] mx-auto"
             >
               <div className=" relative z-20">
                 <h3 className=" text-3xl font-bold">{item.title}</h3>
@@ -156,7 +127,7 @@ function Home() {
               <img
                 src={item.image}
                 alt={item.title}
-                className=" h-56 object-contain  absolute z-0 bottom-0 right-0"
+                className=" max-h-[120px] object-contain  absolute z-0 bottom-0 right-0"
               />
             </div>
           ))}
@@ -165,8 +136,8 @@ function Home() {
 
       {/* Get 25% Off On Your First Purchase! */}
       <div className="bg-[#f7f5f2] pb-8 ">
-        <div className="relative bg-black text-white grid lg:grid-cols-2 sm:grid-row-2 gap-4 py-[60px] ">
-          <h2 className=" font-bold  sm:text-center lg:text-end text-4xl">
+        <div className="relative bg-black text-white grid lg:grid-cols-2 max-lg:grid-row-2 gap-4 py-[60px] ">
+          <h2 className=" font-bold  max-lg:text-center lg:text-end text-4xl">
             Get 25% Off On Your First Purchase!
           </h2>
 
@@ -191,38 +162,8 @@ function Home() {
           <img src={image.leaf} className="w-[75px] h-[33px] " />
         </div>
         {/* <div className="flex flex-rows items-center justify-center gap-4 mt-10 pb-[100px] "> */}
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(285px,1fr))] sm:max-w-[300px] md:max-w-[600px] lg:max-w-[1200px] mx-auto gap-4 mt-10 pb-[100px] ">
-          {products.map((item) => (
-            <div key={item.id} className="text-center relative">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-[285px] h-[285px] object-cover relative z-10"
-              />
-              <p className="text-gray-500">{item.category}</p>
-              <h3 className="font-semibold">{item.name}</h3>
-              <div className="text-yellow-400">★★★★★</div>
-              <div className="mt-1">
-                {item.isSale && item.oldPrice ? (
-                  <div>
-                    <span className="line-through text-gray-400 mr-2">
-                      £{item.oldPrice.toFixed(2)}
-                    </span>
-                    <span className="text-red-500 font-bold">
-                      £{item.price.toFixed(2)}
-                    </span>
-                  </div>
-                ) : (
-                  <span className="font-bold">£{item.price.toFixed(2)}</span>
-                )}
-              </div>
-              {item.isSale && (
-                <span className="absolute z-20 top-0 right-0 bg-primary text-white text-xs  px-[10px] translate-x-[30%] -translate-y-[30%] py-4 rounded-full">
-                  Sale!
-                </span>
-              )}
-            </div>
-          ))}
+        <div className="pb-[100px] max-w-[1200px] mx-auto ">
+          <ListProduct products={products} />
         </div>
       </div>
 

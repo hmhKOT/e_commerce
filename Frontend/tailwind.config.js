@@ -31,18 +31,21 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         opensans: ["Open Sans", "sans-serif"],
+        merriweather: ["Merriweather", "serif"],
       },
       screens: {
-        // Mặc định min-width
-        sm: "360px",
-        md: "720px",
-        lg: "1280px",
+        // min-width (mặc định Tailwind)
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
         "2xl": "1536px",
 
-        // Thêm max-width
+        // max-width (tự thêm)
         "max-sm": { max: "639px" }, // nhỏ hơn sm
         "max-md": { max: "767px" }, // nhỏ hơn md
         "max-lg": { max: "1023px" }, // nhỏ hơn lg
+        "max-xl": { max: "1279px" }, // nhỏ hơn xl
       },
     },
   },
