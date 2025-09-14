@@ -11,6 +11,8 @@ import { image } from "../../../data/image";
 import { products } from "../../../mock/mockProducts";
 import { categories } from "../../../mock/mockCategories";
 import ListProduct from "../components/ListProduct";
+import CustomButton from "../components/CustomButton";
+import { useNavigate } from "react-router-dom";
 const brands = [
   {
     id: 1,
@@ -34,6 +36,7 @@ const brands = [
   },
 ];
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <article className="max-lg:flex flex-col-reverse items-center lg:grid grid-cols-[repeat(auto-fit,minmax(400px,1fr))] lg:py-28 max-w-6xl mx-auto bg-bg">
@@ -55,10 +58,24 @@ function Home() {
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </p>
 
-          <button className="flex flex-row w-[175px] h-[48px] items-center justify-center bg-primary-600 p-2 rounded-sm hover:bg-primary text-white">
+          {/* <button className="flex flex-row w-[175px] h-[48px] items-center justify-center bg-primary-600 p-2 rounded-sm hover:bg-primary text-white">
             <ShoppingCart />
             <span className="ml-2 ">SHOW NOW</span>
-          </button>
+          </button> */}
+          <div>
+            <CustomButton
+              onClick={() => {
+                navigate("/products");
+              }}
+              label="SHOP NOW"
+              Icon={ShoppingCart}
+              iconPosition="left"
+              size="md"
+              variant="primary"
+              className=""
+              ariaLabel="Shop Now"
+            />
+          </div>
         </section>
       </article>
       <div className="bg-black ">
@@ -119,9 +136,19 @@ function Home() {
               <div className=" relative z-20">
                 <h3 className=" text-3xl font-bold">{item.title}</h3>
                 <p className="text-gray-500">{item.description}</p>
-                <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-                  {item.buttonText}
-                </button>
+
+                <CustomButton
+                  onClick={() => {
+                    navigate("/products");
+                  }}
+                  label="SHOP NOW"
+                  Icon={ShoppingCart}
+                  iconPosition="left"
+                  size="md"
+                  variant="primary"
+                  className=""
+                  ariaLabel="Shop Now"
+                />
               </div>
 
               <img
@@ -142,10 +169,18 @@ function Home() {
           </h2>
 
           <div className="flex flex-rows items-center justify-center">
-            <button className="flex flex-row w-[175px] h-[48px] items-center justify-center bg-primary-600 p-2 rounded-sm hover:bg-primary text-white">
-              <ShoppingCart />
-              <span className="ml-2 ">SHOW NOW</span>
-            </button>
+            <CustomButton
+              onClick={() => {
+                navigate("/products");
+              }}
+              label="SHOP NOW"
+              Icon={ShoppingCart}
+              iconPosition="left"
+              size="md"
+              variant="primary"
+              className=""
+              ariaLabel="Shop Now"
+            />
           </div>
 
           <div className="absolute left-1/2 -bottom-2 w-0 h-0 -translate-x-1/2 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-black"></div>
@@ -217,9 +252,19 @@ function Home() {
                 <p className="text-white mb-6">
                   I am text block. Click edit button to change this tex em ips.
                 </p>
-                <button className="bg-primary-600 text-white px-4 py-2 rounded hover:bg-primary flex flex-row">
-                  <p>SHOP NOW</p> <ArrowRight />
-                </button>
+
+                <CustomButton
+                  onClick={() => {
+                    navigate("/products");
+                  }}
+                  label="SHOP NOW"
+                  Icon={ArrowRight}
+                  iconPosition="left"
+                  size="md"
+                  variant="primary"
+                  className=""
+                  ariaLabel="Shop Now"
+                />
               </div>
             </article>
           </li>
