@@ -3,25 +3,26 @@ import ListProduct from "../components/ListProduct";
 import { allProducts } from "../../../mock/mockProducts";
 import { Search, CircleX, Star, ListFilter } from "lucide-react";
 const options = [5, 4, 3, 2, 1];
-const brandsList = [
-  "Panasonic",
-  "Mitsubishi",
-  "Toshiba",
-  "Xiaomi",
-  "Sharp",
-  "Sony",
-  "Samsung",
-  "LG",
-  "Philips",
-  "Hitachi",
+const categoriesList = [
+  "Fresh Fruits",
+  "Fresh Vegetables",
+  "Herbs & Spices",
+  "Organic Grains & Pulses",
+  "Dairy & Eggs",
+  "Bakery",
+  "Cold-Pressed Oils",
+  "Nuts & Seeds",
+  "Beverages & Juices",
+  "Natural Snacks",
 ];
+
 const serviceOptions = [
   "On Sale",
   "Style Collection",
   "New Arrival",
   "Available Now",
 ];
-function Everything() {
+function Product() {
   const [pageSize, setPageSize] = useState(9);
   const [page, setPage] = useState(1);
 
@@ -110,12 +111,14 @@ function Everything() {
             )}
             <button
               className="xl:hidden p-2 border rounded ml-auto "
-              onClick={() => setViewFilter(!viewFilter)}
+              onClick={() => {
+                setViewFilter(!viewFilter);
+              }}
             >
               <ListFilter className="h-5 w-5" />
             </button>
           </header>
-          <div className={`max-xl:${viewFilter ? "" : "hidden"}`}>
+          <div className={` max-xl:${viewFilter ? "block" : "hidden"}`}>
             <div className="py-4  border-b border-gray">
               <h3>Price Range:</h3>
               <div className="flex items-center gap-2 mt-2">
@@ -138,8 +141,8 @@ function Everything() {
             </div>
 
             <div className="py-4  border-b border-gray flex flex-col gap-2">
-              <h3 className="font-semibold mb-2">Brands</h3>
-              {brandsList.map((brand) => (
+              <h3 className="font-semibold mb-2">Categories</h3>
+              {categoriesList.map((brand) => (
                 <label
                   key={brand}
                   className="flex items-center gap-2 cursor-pointer hover:text-primary-600 transition-colors"
@@ -240,4 +243,4 @@ function Everything() {
   );
 }
 
-export default Everything;
+export default Product;
