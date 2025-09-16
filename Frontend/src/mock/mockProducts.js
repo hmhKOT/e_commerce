@@ -165,3 +165,39 @@ export const allProducts = [
     isSale: false,
   },
 ];
+
+// MOCK DATA - easy to replace with API data later
+export const mockProduct = {
+  id: "prod_001",
+  title: "Assorted Coffee",
+  price: 35.0,
+  currency: "£",
+  shortDescription:
+    "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit.",
+  description:
+    "Neque porro quisquam est, qui dolore ipsum quia dolor sit amet, consectetur adipisci velit, sed quia non incidunt lores ta porro ame. numquam eius modi tempora incidunt lores ta porro ame.",
+  categories: ["Groceries", "Juice"],
+  images: [
+    "https://websitedemos.net/organic-shop-02/wp-content/uploads/sites/465/2018/06/coffee-asorted.jpg",
+    // add more image urls if needed
+  ],
+  stock: 20,
+};
+
+// Combo options mock
+export const mockCombos = [
+  {
+    id: "combo_1",
+    title: "Breakfast Combo (2 bags + filter)",
+    items: [{ name: "Assorted Coffee" }, { name: "Filter" }],
+    price: 60.0,
+    savings: 10.0,
+  },
+  {
+    id: "combo_2",
+    title: "Sampler Pack (3 small bags)",
+    items: [{ name: "Light" }, { name: "Medium" }, { name: "Dark" }],
+    price: 80.0,
+    savings: 15.0,
+  },
+];

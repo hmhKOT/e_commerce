@@ -3,6 +3,7 @@ import Home from "../web/pages/Home";
 import Product from "./pages/Product";
 import Blog from "./pages/Blog";
 import ProductDetail from "./pages/ProductDetail";
+import About from "./pages/About";
 const WebRouter = [
   {
     path: "/",
@@ -11,7 +12,8 @@ const WebRouter = [
       { index: true, element: <Home /> },
       { path: "product", element: <Product /> },
       { path: "product/:id", element: <ProductDetail /> },
-      { path: "blogs", element: <Blog /> },
+      { path: "blog", element: <Blog /> },
+      { path: "about", element: <About /> },
     ],
   },
 ];
